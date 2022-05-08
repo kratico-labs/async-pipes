@@ -2,9 +2,10 @@
   "name": "@mv/async-collapse",
   "version": "1.0.0",
   "description": "Collapse duplicated async calls",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
+    "build": "tsup src/index.ts",
     "watch": "tsup src/index.ts --watch",
     "watch2": "tsup src/pipe-test.ts --watch",
     "lint": "eslint src --ext .ts && tsc",
