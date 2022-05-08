@@ -1,0 +1,29 @@
+{
+  "name": "async-collapse",
+  "version": "1.0.0",
+  "description": "Collapse duplicated async calls",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "watch": "tsup src/index.ts --watch",
+    "watch2": "tsup src/pipe-test.ts --watch",
+    "lint": "eslint src --ext .ts && tsc",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.5.0",
+    "@types/node": "^17.0.31",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.1.5",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^28.1.0",
+    "prettier": "^2.6.2",
+    "ts-jest": "^28.0.1",
+    "tsup": "^5.12.7",
+    "typescript": "^4.6.4"
+  }
+}
