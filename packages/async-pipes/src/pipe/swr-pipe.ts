@@ -19,13 +19,20 @@ type Configuration<TCacheKey> = {
 };
 
 export const createSWRPipe =
-  <TCacheKey>({ cache, serialize, cacheTime }: Configuration<TCacheKey>) =>
+  <TCacheKey>({
+    cache,
+    serialize,
+    cacheTime,
+    staleTime,
+  }: Configuration<TCacheKey>) =>
   <TArg, TResult>(
     arg: TArg,
     next: PromiseFunction<TArg, TResult>
   ): Promise<TResult> => {
     const cacheKey = serialize(arg);
     const cacheValue = cache.get(cacheKey);
+
+    // TODO: dedupe logic
 
     if (!cacheValue) {
       const result = next(arg);
@@ -38,13 +45,20 @@ export const createSWRPipe =
     }
 
     const now = Date.now();
+    const isStale = now - cacheValue.timestamp > cacheTime;
+    const isTrulyStale = now - cacheValue.timestamp > staleTime;
 
-    // TODO: check if the cache entry is stale
-    // - delete the cache entry
-    // - block on result
+    if (isTrulyStale) {
+      cache.delete(cacheKey);
 
-    // checks if the cache entry has expired
-    if (now - cacheValue.timestamp > cacheTime) {
+      const result = next(arg);
+
+      void result.then(() => {
+        cache.set(cacheKey, { value: result, timestamp: Date.now() });
+      });
+
+      return result;
+    } else if (isStale) {
       const result = next(arg);
 
       void result.then(() => {
