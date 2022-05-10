@@ -1,4 +1,4 @@
-import { createPipeline } from "./pipes";
+import { createPipeline } from "../create-pipeline";
 import { createSWRPipe } from "./swr-pipe";
 
 describe("createSWRPipe", () => {

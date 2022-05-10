@@ -1,5 +1,5 @@
 import { createDedupePipe } from "./dedupe-pipe";
-import { createPipeline } from "./pipes";
+import { createPipeline } from "../create-pipeline";
 
 describe("createDedupePipe", () => {
   beforeEach(() => {

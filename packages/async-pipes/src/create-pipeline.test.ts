@@ -1,4 +1,4 @@
-import { createPipeline } from "./pipes";
+import { createPipeline } from "./create-pipeline";
 
 describe("createWorkflow", () => {
   it("should create a runable pipeline", async () => {

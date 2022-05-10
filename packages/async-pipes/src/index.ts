@@ -1,3 +1,3 @@
-export { createDedupePipe } from "./dedupe-pipe";
-export { createSWRPipe } from "./swr-pipe";
-export { createPipeline } from "./pipes";
+export { createDedupePipe } from "./pipe/dedupe-pipe";
+export { createSWRPipe } from "./pipe/swr-pipe";
+export { createPipeline } from "./create-pipeline";
