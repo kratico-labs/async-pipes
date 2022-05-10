@@ -1,23 +1,30 @@
-# Async Data Pipes
-
-# Async Collapse
+# Async Pipes
 
 ```
-const data = await asyncCollapse(key, asyncFn);
+const express = require('express');
+const app = express();
+const port = 3000;
 
+const pipeline = createPipeline([
+  createDedupePipe({
+    cache: new Map(),
+    serialize: (v) => JSON.stringify(v),
+  }),
+  createSWRPipe({
+    cache: new Map(),
+    serialize: (v) => JSON.stringify(v),
+    cacheTime: 60000,
+    staleTime: 10 * 60000,
+  }),
+]);
 
-const data = await asyncCollapse(key, asyncFn, { cache: new Map() });
-const data = await asyncCollapse(key, asyncFn, { middleware: [a, b, c] });
+app.get('/api/people/:peopleId', async (req, res) => {
+  const response = await pipeline(
+    req.params.peopleId,
+    (peopleId) => axios.get(`https://swapi.dev/api/people/${peopleId}/`),
+  );
 
-const pipeline = createDataPipe(
-    // collapse
-    // stale while revalidate
-    // .json
-    // fetch
-)
-
-(args, next): Promise => {
-    next(...args);
-}
+  res.json(response.data);
+});
 
 ```
