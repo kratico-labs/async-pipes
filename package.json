@@ -1,5 +1,5 @@
 {
-  "name": "@sx/monorep",
+  "name": "@mv/async-pipes-monorep",
   "private": true,
   "workspaces": [
     "packages/*",

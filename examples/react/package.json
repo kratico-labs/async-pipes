@@ -7,7 +7,7 @@
     "build": "parcel build"
   },
   "dependencies": {
-    "@mv/async-collapse": "workspace:*",
+    "@mv/async-pipes": "workspace:*",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

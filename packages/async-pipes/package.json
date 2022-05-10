@@ -1,7 +1,7 @@
 {
-  "name": "@mv/async-collapse",
+  "name": "@mv/async-pipes",
   "version": "1.0.0",
-  "description": "Collapse duplicated async calls",
+  "description": "Composable async utilities for promises",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {

@@ -4,7 +4,7 @@ import {
   createWorkflow,
   createDedupePipe,
   createSWRPipe,
-} from "@mv/async-collapse";
+} from "@mv/async-pipes";
 
 const workflow = createWorkflow([
   createDedupePipe({

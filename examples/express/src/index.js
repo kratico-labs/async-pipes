@@ -2,7 +2,7 @@ const {
   createWorkflow,
   createDedupePipe,
   createSWRPipe,
-} = require("@mv/async-collapse");
+} = require("@mv/async-pipes");
 const axios = require("axios");
 
 const express = require('express');
