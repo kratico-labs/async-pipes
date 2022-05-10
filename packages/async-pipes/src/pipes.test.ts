@@ -1,8 +1,8 @@
-import { createWorkflow } from "./pipes";
+import { createPipeline } from "./pipes";
 
 describe("createWorkflow", () => {
-  it("should create a runable workflow", async () => {
-    const workflow = createWorkflow<string, string>([
+  it("should create a runable pipeline", async () => {
+    const pipeline = createPipeline<string, string>([
       (a: string, next) => {
         return next(a + "1").then((r) => r + "3");
       },
@@ -12,7 +12,7 @@ describe("createWorkflow", () => {
       },
     ]);
 
-    const result = await workflow("key", (a) => Promise.resolve(a + "0"));
+    const result = await pipeline("key", (a) => Promise.resolve(a + "0"));
 
     expect(result).toBe("key12043");
   });

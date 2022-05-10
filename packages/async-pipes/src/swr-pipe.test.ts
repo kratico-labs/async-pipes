@@ -1,9 +1,9 @@
-import { createWorkflow } from "./pipes";
+import { createPipeline } from "./pipes";
 import { createSWRPipe } from "./swr-pipe";
 
 describe("createSWRPipe", () => {
   it("should return a result", async () => {
-    const workflow = createWorkflow<string, string>([
+    const pipeline = createPipeline<string, string>([
       createSWRPipe({
         cache: new Map(),
         serialize: (v) => JSON.stringify(v),
@@ -12,7 +12,7 @@ describe("createSWRPipe", () => {
       }),
     ]);
 
-    await expect(workflow("a", (a) => Promise.resolve(a))).resolves.toEqual(
+    await expect(pipeline("a", (a) => Promise.resolve(a))).resolves.toEqual(
       "a"
     );
   });
@@ -22,7 +22,7 @@ describe("createSWRPipe", () => {
 
     nowMock.mockImplementation(() => 0);
 
-    const workflow = createWorkflow<string, string>([
+    const pipeline = createPipeline<string, string>([
       createSWRPipe({
         cache: new Map(),
         serialize: (v) => JSON.stringify(v),
@@ -34,9 +34,9 @@ describe("createSWRPipe", () => {
     const mock = jest.fn((a: string) => Promise.resolve(a));
 
     // cache result
-    await workflow("key", mock);
+    await pipeline("key", mock);
     // serve cached result
-    await workflow("key", mock);
+    await pipeline("key", mock);
 
     expect(mock).toBeCalledTimes(1);
 
@@ -44,9 +44,9 @@ describe("createSWRPipe", () => {
     nowMock.mockImplementation(() => 7000);
 
     // cache a new result
-    await workflow("key", mock);
+    await pipeline("key", mock);
     // serve new cached result
-    await workflow("key", mock);
+    await pipeline("key", mock);
 
     expect(mock).toBeCalledTimes(2);
   });

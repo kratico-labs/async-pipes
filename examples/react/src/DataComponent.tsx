@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import { 
-  createWorkflow,
+  createPipeline,
   createDedupePipe,
   createSWRPipe,
 } from "@mv/async-pipes";
 
-const workflow = createWorkflow([
+const pipeline = createPipeline([
   createDedupePipe({
     cache: new Map(),
     serialize: (v) => JSON.stringify(v),
@@ -30,7 +30,7 @@ const useSWPeopleName = (peopleId) => {
 
   useEffect(
     () => {
-      workflow(peopleId, swPeopleAPI)
+      pipeline(peopleId, swPeopleAPI)
         .then(people => setName(people.name))
     },
     [peopleId]

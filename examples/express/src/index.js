@@ -1,5 +1,5 @@
 const { 
-  createWorkflow,
+  createPipeline,
   createDedupePipe,
   createSWRPipe,
 } = require("@mv/async-pipes");
@@ -9,7 +9,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const workflow = createWorkflow([
+const pipeline = createPipeline([
   createDedupePipe({
     cache: new Map(),
     serialize: (v) => JSON.stringify(v),
@@ -23,7 +23,7 @@ const workflow = createWorkflow([
 ]);
 
 app.get('/api/people/:peopleId', async (req, res) => {
-  const response = await workflow(
+  const response = await pipeline(
     req.params.peopleId,
     (peopleId) => axios.get(`https://swapi.dev/api/people/${peopleId}/`),
   );

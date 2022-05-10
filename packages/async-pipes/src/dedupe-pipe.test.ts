@@ -1,5 +1,5 @@
 import { createDedupePipe } from "./dedupe-pipe";
-import { createWorkflow } from "./pipes";
+import { createPipeline } from "./pipes";
 
 describe("createDedupePipe", () => {
   beforeEach(() => {
@@ -11,20 +11,20 @@ describe("createDedupePipe", () => {
   });
 
   it("should return a result", async () => {
-    const workflow = createWorkflow<string, string>([
+    const pipeline = createPipeline<string, string>([
       createDedupePipe({
         cache: new Map(),
         serialize: (v) => JSON.stringify(v),
       }),
     ]);
 
-    await expect(workflow("a", (a) => Promise.resolve(a))).resolves.toEqual(
+    await expect(pipeline("a", (a) => Promise.resolve(a))).resolves.toEqual(
       "a"
     );
   });
 
   it("should deduplicate async calls", async () => {
-    const workflow = createWorkflow<string, string>([
+    const pipeline = createPipeline<string, string>([
       createDedupePipe({
         cache: new Map(),
         serialize: (v) => JSON.stringify(v),
@@ -37,9 +37,9 @@ describe("createDedupePipe", () => {
     );
 
     const allWorkflows = Promise.all([
-      workflow("key", mock),
-      workflow("key", mock),
-      workflow("key", mock),
+      pipeline("key", mock),
+      pipeline("key", mock),
+      pipeline("key", mock),
     ]);
 
     jest.runAllTimers();

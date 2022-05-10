@@ -1,6 +1,6 @@
 import type { Pipe, PromiseFunction } from "./types";
 
-export const createWorkflow = <T, U>(
+export const createPipeline = <T, U>(
   pipes: Pipe<T, U>[]
 ): ((arg: T, fn: PromiseFunction<T, U>) => Promise<U>) => {
   const runPipes = <T, U>(
