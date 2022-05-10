@@ -1,5 +1,3 @@
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
-module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-};
+const config = require("../../jest.config.base");
+
+module.exports = Object.assign(Object.create(null), config);

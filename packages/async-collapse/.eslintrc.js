@@ -1,5 +1,4 @@
 module.exports = {
-  root: true,
   parser: "@typescript-eslint/parser",
   parserOptions: {
     tsconfigRootDir: __dirname,
@@ -15,6 +14,8 @@ module.exports = {
     "plugin:jest/recommended",
     "plugin:prettier/recommended",
   ],
+  // TODO: customize lint rules for test files
+  ignorePatterns: ["**/*.test.ts"],
   rules: {
     "import/order": [
       "error",

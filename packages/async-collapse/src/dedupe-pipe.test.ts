@@ -1,9 +1,15 @@
 import { createDedupePipe } from "./dedupe-pipe";
 import { createWorkflow } from "./pipes";
 
-jest.useFakeTimers();
-
 describe("createDedupePipe", () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   it("should return a result", async () => {
     const workflow = createWorkflow<string, string>([
       createDedupePipe({

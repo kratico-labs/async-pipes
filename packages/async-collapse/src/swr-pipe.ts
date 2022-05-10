@@ -1,4 +1,4 @@
-import { PromiseFunction } from "./types";
+import type { PromiseFunction } from "./types";
 
 type CacheEntry<V> = {
   timestamp: number;
