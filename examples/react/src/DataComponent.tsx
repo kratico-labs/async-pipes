@@ -4,7 +4,7 @@ import {
   createPipeline,
   createDedupePipe,
   createSWRPipe,
-} from "@mv/async-pipes";
+} from "@kratico-labs/async-pipes";
 
 const pipeline = createPipeline([
   createDedupePipe({

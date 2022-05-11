@@ -1,5 +1,5 @@
 {
-  "name": "@mv/async-pipes",
+  "name": "@kratico-labs/async-pipes",
   "version": "1.0.0",
   "description": "Composable async utilities for promises",
   "main": "dist/index.js",

@@ -2,7 +2,7 @@ const {
   createPipeline,
   createDedupePipe,
   createSWRPipe,
-} = require("@mv/async-pipes");
+} = require("@kratico-labs/async-pipes");
 const axios = require("axios");
 
 const express = require('express');

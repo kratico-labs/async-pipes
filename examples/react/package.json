@@ -1,5 +1,5 @@
 {
-  "name": "@mv/react-example",
+  "name": "@kratico-labs/react-example",
   "source": "src/index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "parcel build"
   },
   "dependencies": {
-    "@mv/async-pipes": "workspace:*",
+    "@kratico-labs/async-pipes": "workspace:*",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },

@@ -724,6 +724,55 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kratico-labs/async-pipes-monorep@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@kratico-labs/async-pipes-monorep@workspace:."
+  languageName: unknown
+  linkType: soft
+
+"@kratico-labs/async-pipes@workspace:*, @kratico-labs/async-pipes@workspace:packages/async-pipes":
+  version: 0.0.0-use.local
+  resolution: "@kratico-labs/async-pipes@workspace:packages/async-pipes"
+  dependencies:
+    "@types/jest": ^27.5.0
+    "@types/node": ^17.0.31
+    "@typescript-eslint/eslint-plugin": ^5.22.0
+    "@typescript-eslint/parser": ^5.22.0
+    eslint: ^8.15.0
+    eslint-config-prettier: ^8.5.0
+    eslint-plugin-import: ^2.26.0
+    eslint-plugin-jest: ^26.1.5
+    eslint-plugin-prettier: ^4.0.0
+    jest: ^28.1.0
+    prettier: ^2.6.2
+    ts-jest: ^28.0.1
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
+"@kratico-labs/express-example@workspace:examples/express":
+  version: 0.0.0-use.local
+  resolution: "@kratico-labs/express-example@workspace:examples/express"
+  dependencies:
+    "@kratico-labs/async-pipes": "workspace:*"
+    axios: ^0.27.2
+    express: ^4.18.1
+  languageName: unknown
+  linkType: soft
+
+"@kratico-labs/react-example@workspace:examples/react":
+  version: 0.0.0-use.local
+  resolution: "@kratico-labs/react-example@workspace:examples/react"
+  dependencies:
+    "@kratico-labs/async-pipes": "workspace:*"
+    "@types/react": ^18.0.9
+    "@types/react-dom": ^18.0.3
+    parcel: ^2.5.0
+    react: ^18.1.0
+    react-dom: ^18.1.0
+  languageName: unknown
+  linkType: soft
+
 "@lezer/common@npm:^0.15.0, @lezer/common@npm:^0.15.7":
   version: 0.15.12
   resolution: "@lezer/common@npm:0.15.12"
@@ -750,55 +799,6 @@ __metadata:
   checksum: a30eda9eb02db5213b7aa2dc3c688257884a8969849ffa5a3a7c64c5f2a1cfed06691d94f02b37294a3a3b9efe7f88ee6b86c9ef20a799af54807ff2de2d253e
   languageName: node
   linkType: hard
-
-"@mv/async-pipes-monorep@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@mv/async-pipes-monorep@workspace:."
-  languageName: unknown
-  linkType: soft
-
-"@mv/async-pipes@workspace:*, @mv/async-pipes@workspace:packages/async-pipes":
-  version: 0.0.0-use.local
-  resolution: "@mv/async-pipes@workspace:packages/async-pipes"
-  dependencies:
-    "@types/jest": ^27.5.0
-    "@types/node": ^17.0.31
-    "@typescript-eslint/eslint-plugin": ^5.22.0
-    "@typescript-eslint/parser": ^5.22.0
-    eslint: ^8.15.0
-    eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^26.1.5
-    eslint-plugin-prettier: ^4.0.0
-    jest: ^28.1.0
-    prettier: ^2.6.2
-    ts-jest: ^28.0.1
-    typescript: ^4.6.4
-  languageName: unknown
-  linkType: soft
-
-"@mv/express-example@workspace:examples/express":
-  version: 0.0.0-use.local
-  resolution: "@mv/express-example@workspace:examples/express"
-  dependencies:
-    "@mv/async-pipes": "workspace:*"
-    axios: ^0.27.2
-    express: ^4.18.1
-  languageName: unknown
-  linkType: soft
-
-"@mv/react-example@workspace:examples/react":
-  version: 0.0.0-use.local
-  resolution: "@mv/react-example@workspace:examples/react"
-  dependencies:
-    "@mv/async-pipes": "workspace:*"
-    "@types/react": ^18.0.9
-    "@types/react-dom": ^18.0.3
-    parcel: ^2.5.0
-    react: ^18.1.0
-    react-dom: ^18.1.0
-  languageName: unknown
-  linkType: soft
 
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5

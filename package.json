@@ -1,5 +1,5 @@
 {
-  "name": "@mv/async-pipes-monorep",
+  "name": "@kratico-labs/async-pipes-monorep",
   "private": true,
   "workspaces": [
     "packages/*",
